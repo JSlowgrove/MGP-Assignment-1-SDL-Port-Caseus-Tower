@@ -70,6 +70,13 @@ bool App::input()
 			break;
 		}
 	}
+	
+	/*test if the program should quit*/
+	if (!stateManager->runProgram())
+	{ 
+		return false;
+	}
+
 	return true;
 }
 

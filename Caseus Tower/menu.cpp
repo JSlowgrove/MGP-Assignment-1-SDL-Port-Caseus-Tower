@@ -22,6 +22,9 @@ Menu::Menu(StateManager * inStateManager,  SpriteHandler* inSprites, int inWidth
 	selected = -1;
 	/*set the state name*/
 	name = "menu";
+	/*initialise and start the music*/
+	music = new Audio("aud/TheWayOut.ogg", true);
+	music->startAudio();
 }
 
 /**************************************************************************************************************/
@@ -29,6 +32,10 @@ Menu::Menu(StateManager * inStateManager,  SpriteHandler* inSprites, int inWidth
 /*Destructs the menu object*/
 Menu::~Menu()
 {
+	/*stop music*/
+	music->stopAudio();
+	/*delete audio pointers*/
+	delete music;
 	/*delete entities*/
 	for (unsigned int i = 0; i < buttons.size(); i++)
 	{
@@ -43,6 +50,9 @@ Menu::~Menu()
 /*updates the menu object*/
 void Menu::update(float dt, float pressLocationX, float pressLocationY)
 {
+	/*check the music is still playing if not start again*/
+	music->startAudio();
+
 	/*check if the play button is pressed*/
 	if (pressLocationX <= buttons[0]->getX() + (buttons[0]->getXScale()*0.5f) 
 		&& pressLocationX > buttons[0]->getX() - (buttons[0]->getXScale()*0.5f)
@@ -109,6 +119,9 @@ void Menu::update(float dt, float pressLocationX, float pressLocationY)
 			/*open up the credits*/
 			stateManager->addState(new Credits(stateManager, sprites, screenWidth, screenHeight));
 			break;
+		case 2:
+			runCheck = false;
+			break;
 		}
 		/*reset the pressed*/
 		pressed = false;
@@ -137,5 +150,5 @@ void Menu::drawSpritesWithAlpha()
 	/*draw the credits button*/
 	sprites->drawMenuSprite("credits", creditSprite, buttons[1]->getX(), buttons[1]->getY(), buttons[1]->getXScale(), buttons[1]->getYScale());
 	/*draw the exit button*/
-	//sprites->drawMenuSprite("exit", exitSprite, buttons[2]->getX(), buttons[2]->getY(), buttons[2]->getXScale(), buttons[2]->getYScale());
+	sprites->drawMenuSprite("exit", exitSprite, buttons[2]->getX(), buttons[2]->getY(), buttons[2]->getXScale(), buttons[2]->getYScale());
 }

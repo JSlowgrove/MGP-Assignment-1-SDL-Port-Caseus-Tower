@@ -7,6 +7,7 @@
 #include "game.h"
 #include "entity.h"
 #include "animation.h"
+#include "audio.h"
 
 /**
 @brief Creates an Menu object
@@ -15,6 +16,8 @@ Creates an Menu object which inherits State.
 class Menu : public State
 {
 private:
+	/**Audio*/
+	Audio * music;
 	/**The buttons*/
 	std::vector<Entity *> buttons;
 	/**boolean for if a button is pressed*/

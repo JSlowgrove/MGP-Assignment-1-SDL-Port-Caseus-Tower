@@ -13,7 +13,7 @@ Credits::Credits(StateManager * inStateManager, SpriteHandler* inSprites, int in
 	/*initialise button press animation timer*/
 	buttonPress = new Animation(0.25f);
 	/*initialise button*/
-	button = new Entity((float)(screenWidth * 0.5f), (float)((screenHeight * 0.5f) + 675), (float)(screenWidth - 200), 175, 0);
+	button = new Entity((float)(screenWidth * 0.5f), (float)((screenHeight * 0.5f) + 675), screenWidth - 200, 175, 0);
 	/*initialise button sprite indexes*/
 	exitSprite = 0;
 	/*set the state name*/

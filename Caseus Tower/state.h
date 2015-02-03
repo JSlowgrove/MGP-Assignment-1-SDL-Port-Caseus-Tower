@@ -21,6 +21,8 @@ protected:
 	SpriteHandler * sprites;
 	/*The name of the State*/
 	std::string name;
+	/*Should the program run*/
+	bool runCheck;
 public:
 	/**
 	Constructs a State object
@@ -56,8 +58,14 @@ public:
 
 	/**
 	Getter # State name
-	@returns the name of the State.
+	@returns std::string the name of the State.
 	*/
 	std::string GetStateName();
+
+	/**
+	Getter # runCheck
+	@returns bool if the program should run.
+	*/
+	bool runProgram();
 };
 

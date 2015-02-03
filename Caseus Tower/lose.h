@@ -5,6 +5,7 @@
 #include "spriteHandler.h"
 #include "entity.h"
 #include "animation.h"
+#include "audio.h"
 
 /**
 @brief Creates a Lose State.
@@ -13,6 +14,9 @@ Creates a Lose State that inherits State
 class Lose : public State
 {
 private:
+	/**Audio*/
+	Audio * music;
+	Audio * lose;
 	/**The buttons*/
 	Entity * playButton;
 	Entity * exitButton;

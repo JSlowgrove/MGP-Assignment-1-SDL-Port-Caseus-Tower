@@ -12,6 +12,8 @@ State::State(StateManager * inStateManager, SpriteHandler * inSprites, int inWid
 	/*initialises the screen dimensions*/
 	screenWidth = inWidth;
 	screenHeight = inHeight;
+	/*set the program to run*/
+	runCheck = true;
 }
 
 /**************************************************************************************************************/
@@ -25,7 +27,17 @@ State::~State()
 /**************************************************************************************************************/
 
 /*returns the name of the state*/
-std::string State::GetStateName() {
+std::string State::GetStateName() 
+{
 	/*returns the name*/
 	return name;
+}
+
+/**************************************************************************************************************/
+
+/*returns if the program should run*/
+bool State::runProgram() 
+{
+	/*returns the bool*/
+	return runCheck;
 }

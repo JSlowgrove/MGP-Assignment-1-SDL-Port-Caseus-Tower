@@ -45,6 +45,12 @@ Game::Game(StateManager * inStateManager, SpriteHandler* inSprites, int inWidth,
 	generatePlatforms((float)((screenHeight * 0.5f) - 1000.0f));
 	generatePlatforms((float)((screenHeight * 0.5f) - 1600.0f));
 	generatePlatforms((float)((screenHeight * 0.5f) - 2200.0f));
+
+	/*initialise and start the music*/
+	jumpSafe = new Audio("aud/phaseJump1.ogg", false);
+	jumpDanger = new Audio("aud/phaserDown3.ogg", false);
+	music = new Audio("aud/ShinyTech.ogg", true);
+	music->startAudio();
 }
 
 /**************************************************************************************************************/
@@ -52,6 +58,12 @@ Game::Game(StateManager * inStateManager, SpriteHandler* inSprites, int inWidth,
 /*Destructs the game object*/
 Game::~Game()
 {
+	/*stop music*/
+	music->stopAudio();
+	/*delete audio pointers*/
+	delete music;
+	delete jumpSafe;
+	delete jumpDanger;
 	/*delete entities*/
 	for (unsigned int i = 0; i < background.size(); i++)
 	{
@@ -77,6 +89,9 @@ Game::~Game()
 /*updates the game object*/
 void Game::update(float dt, float pressLocationX, float pressLocationY)
 {
+	/*check the music is still playing if not start again*/
+	music->startAudio();
+
 	/*apply gravity (decrease the background and entities velocity)*/
 	for (unsigned int i = 0; i < background.size(); i++)
 	{
@@ -134,6 +149,9 @@ void Game::update(float dt, float pressLocationX, float pressLocationY)
 		{
 			/*there was a collision*/
 			collisionTest = true;
+
+			/*plays the collision safe sound*/
+			jumpSafe->playEffect();
 		}
 	}
 
@@ -148,6 +166,9 @@ void Game::update(float dt, float pressLocationX, float pressLocationY)
 			/*update the platform animation*/
 			dangerPlatforms[i]->setAnimationIndex(1);
 			platformAnim[i]->updateTimer(dt);
+
+			/*plays the collision safe sound*/
+			jumpDanger->playEffect();
 		}
 	}
 

@@ -23,6 +23,13 @@ Lose::Lose(StateManager * inStateManager, SpriteHandler* inSprites, int inWidth,
 	exitSprite = playSprite = 0;
 	/*set the state name*/
 	name = "lose";
+
+	/*initialise and start the music*/
+	lose = new Audio("aud/jingles_HIT15.ogg", false);
+	music = new Audio("aud/TheWayOut.ogg", true);
+	music->startAudio();
+	/*plays the lose sound*/
+	lose->playEffect();
 }
 
 /**************************************************************************************************************/
@@ -30,6 +37,11 @@ Lose::Lose(StateManager * inStateManager, SpriteHandler* inSprites, int inWidth,
 /*Destructs the lose state*/
 Lose::~Lose()
 {
+	/*stop music*/
+	music->stopAudio();
+	/*delete audio pointers*/
+	delete music;
+	delete lose;
 	/*delete pointers*/
 	delete playButton;
 	delete exitButton;
@@ -41,6 +53,9 @@ Lose::~Lose()
 /*updates the lose state*/
 void Lose::update(float dt, float pressLocationX, float pressLocationY)
 {
+	/*check the music is still playing if not start again*/
+	music->startAudio();
+
 	/*check if the play button is pressed*/
 	if (pressLocationX <= playButton->getX() + (playButton->getXScale() * 0.5f) 
 		&& pressLocationX > playButton->getX() - (playButton->getXScale() * 0.5f)

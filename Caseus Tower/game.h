@@ -8,6 +8,7 @@
 #include "player.h"
 #include "collision.h"
 #include "animation.h"
+#include "audio.h"
 
 /**
 @brief Creates an Game object
@@ -16,6 +17,10 @@ Creates an Game object which inherits State.
 class Game : public State
 {
 private:
+	/**Audio*/
+	Audio * music;
+	Audio * jumpSafe;
+	Audio * jumpDanger;
 	/**The Game entities*/
 	std::vector<Entity *> background;
 	std::vector<Entity *> safePlatforms;

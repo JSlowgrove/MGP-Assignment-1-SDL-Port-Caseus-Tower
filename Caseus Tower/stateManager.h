@@ -69,4 +69,10 @@ public:
 	@returns std::string the name of the state
 	*/
 	std::string getName();
+
+	/**
+	Getter # runCheck
+	@returns bool if the program should run.
+	*/
+	bool runProgram();
 };

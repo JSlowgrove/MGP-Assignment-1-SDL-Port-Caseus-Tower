@@ -102,3 +102,12 @@ std::string StateManager::getName()
 	/*returns the name of the current state*/
 	return currentStates.back()->GetStateName();
 }
+
+/**************************************************************************************************************/
+
+/*returns if the program should run*/
+bool StateManager::runProgram() 
+{
+	/*returns the bool*/
+	return currentStates.back()->runProgram();
+}
