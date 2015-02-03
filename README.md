@@ -3,18 +3,21 @@
 Created by Jamie Slowgrove.  
 You can do what you want with the code and images in this project, however you must credit me and add a link back to the git repository.  
   
+Link to the online version of the Doxygen documentation:  
+http://caseus-tower.jamieslowgrove.co.uk/  
+  
 Font used is Karmatic Arcade Font:  
-http://www.dafont.com/vic-fieger.d852 
-
-Music:
-[The Way Out] Kevin MacLeod (incompetech.com) 
-Licensed under Creative Commons: By Attribution 3.0
-http://creativecommons.org/licenses/by/3.0/
-
-[Shiny Tech] Kevin MacLeod (incompetech.com) 
-Licensed under Creative Commons: By Attribution 3.0
-http://creativecommons.org/licenses/by/3.0/
-
+http://www.dafont.com/vic-fieger.d852  
+  
+Music:  
+[The Way Out] Kevin MacLeod (incompetech.com)  
+Licensed under Creative Commons: By Attribution 3.0  
+http://creativecommons.org/licenses/by/3.0/  
+  
+[Shiny Tech] Kevin MacLeod (incompetech.com)  
+Licensed under Creative Commons: By Attribution 3.0  
+http://creativecommons.org/licenses/by/3.0/  
+  
 Sound Effects are from the Kenney Asset Pack:  
 http://kenney.itch.io/kenney-donation  
   
