@@ -3,9 +3,6 @@
 Created by Jamie Slowgrove.  
 You can do what you want with the code and images in this project, however you must credit me and add a link back to the git repository.  
   
-Link to the online version of the Doxygen documentation:  
-http://caseus-tower.jamieslowgrove.co.uk/  
-  
 Font used is Karmatic Arcade Font:  
 http://www.dafont.com/vic-fieger.d852  
   
